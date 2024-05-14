@@ -9,7 +9,7 @@ type User {
 }
 
 type Query {
-    users: [User!]
+ 
     authUser: User!
     user(userId:ID) :User
 }
@@ -36,5 +36,6 @@ input LoginInput {
 type LogoutResponse {
     message:String!
 }
+
 `
 export default userTypeDef
