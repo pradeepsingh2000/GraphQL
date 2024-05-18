@@ -1,11 +1,12 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { GET_TRANSACTION } from "../graphQl/queries/transaction.queries";
 import moment from "moment";
 import TransactionFormSkeleton from "../component/skeletons/TransactionFormSkeleton";
 import toast from "react-hot-toast";
 import { UPDATE_TRANSACTION } from "../graphQl/mutations/transaction.mutation";
+import { FaHome } from "react-icons/fa";
 
 const TransactionPage = () => {
 
@@ -27,8 +28,6 @@ const [formData, setFormData] = useState({
 const [updateTransaction,{loading:Updatetransaction}] = useMutation(UPDATE_TRANSACTION,{
 	refetchQueries:["GetALlTransaction","GetDashbordData"]
 })
-
-
 
 
 	const handleSubmit = async (e) => {
@@ -72,6 +71,13 @@ const [updateTransaction,{loading:Updatetransaction}] = useMutation(UPDATE_TRANS
 
 	return (
 		<div className='h-screen max-w-4xl mx-auto flex flex-col items-center'>
+			<p>
+			<Link to='/'>
+			<FaHome style={{ color: 'blue', fontSize: '2em' }} />
+
+    </Link>			
+			</p>
+			
 			<p className='md:text-4xl text-2xl lg:text-4xl font-bold text-center relative z-50 mb-4 mr-4 bg-gradient-to-r from-pink-600 via-indigo-500 to-pink-400 inline-block text-transparent bg-clip-text'>
 				Update this transaction
 			</p>
