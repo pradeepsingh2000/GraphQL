@@ -4,8 +4,9 @@ type User {
     username:String!
     name:String!
     password:String!
-    profilePicture:String!
+    profilePicture:String 
     gender:String!
+    transactions: [Transaction!]
 }
 
 type Query {

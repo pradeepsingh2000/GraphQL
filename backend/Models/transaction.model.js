@@ -4,19 +4,19 @@ const transactionSchema = new mongoose.Schema(
   {
     userId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Users",
     },
 
     description: {
       type: String,
     },
     paymentType: {
-      enum: ["CASH", "CARD", "ONLINE"],
+      enum: ["cash", "card", "online"],
       type: String,
     },
     category: {
-      type: String,
-      enum: ["saving" | "expense"| "investment"]
+      enum: ["saving" , "expense" , "investment"],
+      type: String
     },
     location: {
       type: String,
@@ -34,6 +34,6 @@ const transactionSchema = new mongoose.Schema(
   }
 );
 
-const Transaction = mongoose.model("transaction", transactionSchema);
+const Transaction = mongoose.model("Transaction", transactionSchema);
 
 export default Transaction;
